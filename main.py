@@ -19,7 +19,7 @@ min_month_index= 0
 #print (os.getcwd()
 #/Users/admin/Desktop/DENVDEN201905DATA4-homework/Homework/3 Python  6-18/PyBank/Resources/budget_data.csv
  
-with open('budget_data.csv','r') as csvfile:
+with open('budget_data.csv','w+') as csvfile:
     csvfilereader =csv.reader (csvfile)
     READ = csv.reader(csvfile, delimiter=',')
     header=next(READ) #after the header
@@ -60,6 +60,15 @@ print(f"Total: $", sum(totalrev))
 print(f"Average Change:$",(AverageChange/-2))
 print(f"Greatest Increase in Profits:{max_month}(${max_change})")
 print(f"Greatest Decrease in Profits: {min_month}(${min_change})")
+
+with open("./results.txt",'w') as text:
+   text.write("Financial Analysis" + "\n")
+   text.write("----------------------------------------" + "\n")
+   text.write(f"Total Months: {monthcount}" + "\n")
+   text.write(f"Total: $ {sum(totalrev)}")
+   text.write(f"Average Change: ${AverageChange}" + "\n")
+   text.write(f"Greatest Increase in Revenue: {max_month} (${max_change})" + "\n")
+   text.write(f"Greatest Decrease in Revenue: {min_month} (${min_change})" + "\n")
 
 
 # for _ in range(5):
