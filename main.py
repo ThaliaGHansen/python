@@ -1,4 +1,4 @@
- import os
+# import os
 import csv
 # HW INSTRUCTIONS
 # The total number of months included in the dataset
@@ -19,7 +19,7 @@ min_month_index= 0
 #print (os.getcwd()
 #/Users/admin/Desktop/DENVDEN201905DATA4-homework/Homework/3 Python  6-18/PyBank/Resources/budget_data.csv
  
-with open('./budget_data.csv','r') as csvfile:
+with open('budget_data.csv','r') as csvfile:
     csvfilereader =csv.reader (csvfile)
     READ = csv.reader(csvfile, delimiter=',')
     header=next(READ) #after the header
@@ -39,7 +39,7 @@ with open('./budget_data.csv','r') as csvfile:
           #totalrev = totalrev + currentrevenue 
 
 sum_rev_changes = sum(revenue_changes)
-AverageChange = sum_rev_changes /(monthcount -2)
+AverageChange = sum_rev_changes /len(revenue_changes)#(monthcount -2)
 max_change = max(revenue_changes)
 min_change = min(revenue_changes)
 max_month_index = revenue_changes.index(max_change)
@@ -55,22 +55,22 @@ Greatest_Decrease_in_Profits = 0
 
 print("Financial Analysis") #Header
 print("------------------------")  #Border
-print("Total Months:", len(months))
-print("Total: $", sum(totalrev))
-print("Average Change:$",(AverageChange/-2))
-print("Greatest Increase in Profits:{max_month}(${max_change})")
-print("Greatest Decrease in Profits: {min_month}(${min_change})")
+print(f"Total Months:", len(months))
+print(f"Total: $", sum(totalrev))
+print(f"Average Change:$",(AverageChange/-2))
+print(f"Greatest Increase in Profits:{max_month}(${max_change})")
+print(f"Greatest Decrease in Profits: {min_month}(${min_change})")
 
 
-for _ in range(5):
-    name = input("Please enter the name of someone you know. ")
-    names.append(name)
-# @TODO: Use a list comprehension to create a list of lowercased names
-lowercased = [x.lower() for x in names]
-# @TODO: Use a list comprehension to create a list of titlecased names
-# https://www.tutorialspoint.com/python/string_title.htm
-titlecased = [x.title() for x in names]
-invitations = [
-    f"Dear {name}, please come to the wedding this Saturday!" for name in titlecased]
-for invitation in invitations:
-    print(invitation)
+# for _ in range(5):
+#     name = input("Please enter the name of someone you know. ")
+#     names.append(name)
+# # @TODO: Use a list comprehension to create a list of lowercased names
+# lowercased = [x.lower() for x in names]
+# # @TODO: Use a list comprehension to create a list of titlecased names
+# # https://www.tutorialspoint.com/python/string_title.htm
+# titlecased = [x.title() for x in names]
+# invitations = [
+#     f"Dear {name}, please come to the wedding this Saturday!" for name in titlecased]
+# for invitation in invitations:
+#     print(invitation)
